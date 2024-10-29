@@ -39,17 +39,37 @@ body {
 
 .age-input p {
     text-transform: uppercase;
+    color: var(--neutralSmokeyGrey);
     font-size: 11px;
+    font-weight: 700;
     letter-spacing: 3px;
 }
 
-.age-input input {
+.input {
     width: 100px;
     height: 45px;
     border: 1px solid var(--neutralLightGrey);
     border-radius: 4px;
-    text-align: center;
+    text-align: left;
+    padding-left: 15px;
     margin-right: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.input:hover {
+    border: 1px solid var(--primaryPurple);
+}
+
+.input:focus {
+    border: 1px solid var(--primaryPurple);
+    outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 button {
@@ -76,6 +96,74 @@ button img {
     font-style: italic;
 }
 
+.age-calculator h1 {
+    color: var(--neutralOffBlack);
+}
+
 .age-calculator span {
     color: var(--primaryPurple);
+}
+
+.error-message {
+    color: var(--primaryRed);
+    font-size: 9px;
+    margin-top: 5px;
+    display: none;
+}
+
+
+@media (max-width: 560px) {
+    .container {
+        width: 350px;
+    }
+
+    .age-input {
+        margin-bottom: 20px;
+    }
+
+    .age-input p {
+        font-size: 10px;
+    }
+
+    .input {
+        width: 80px;
+    }
+
+    button {
+        width: 55px;
+        height: 55px;
+        transform: translate(115px, 20%);
+    }
+    
+    button img {
+        width: 25px;
+    }
+
+    .age-calculator {
+        font-size: 26px;
+        margin-top: 110px;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        width: 310px;
+    }
+
+    .age-input p {
+        font-size: 9px;
+    }
+
+    .input {
+        width: 70px;
+    }
+
+    button {
+        transform: translate(95px, 20%);
+    }
+
+    .age-calculator {
+        font-size: 22px;
+        margin-top: 110px;
+    }
 }
