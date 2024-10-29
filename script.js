@@ -14,21 +14,32 @@ function ageCalculator() {
   const dmy = document.querySelectorAll(".age-input p");
   const today = new Date();
 
+  const labels = document.querySelectorAll(".age-input p");
+
   [dayInput, monthInput, yearInput].forEach(input => input.style.border = "1px solid var(--primaryPurple)");
   [dayError, monthError, yearError].forEach(error => error.style.display = "none");
+  labels.forEach(label => label.style.color = "inherit");
 
   const requiredFields = [
     { input: dayInput, error: dayError },
     { input: monthInput, error: monthError },
     { input: yearInput, error: yearError },
   ];
+  let hasError = false;
+
   requiredFields.forEach(({ input, error }) => {
     if (!input.value) {
       input.style.border = "1px solid var(--primaryRed)";
       error.textContent = "This field is required";
       error.style.display = "block";
+      hasError = true;
     }
   });
+
+  if (hasError) {
+    labels.forEach(label => label.style.color = "var(--primaryRed)");
+    return;
+  }
 
   if (birthDay < 1 || birthDay > 31) {
     dmy.style.color = "var(--primaryRed)";
@@ -43,7 +54,7 @@ function ageCalculator() {
       yearInput.style.border = "1px solid var(--primaryRed)";
       yearError.textContent = "Must be a valid year";
       yearError.style.display = "block";
-      return;
+      hasError = true;
       }
     } 
   }
@@ -62,7 +73,7 @@ function ageCalculator() {
         yearInput.style.border = "1px solid var(--primaryRed)";
         error.style.display = "block";
       })
-      [dayInput, monthInput, yearInput].forEach(input => input.style.border = "1px solid red");
+      labels.forEach(label => label.style.color = "var(--primaryRed)");
       return;
     }
 
