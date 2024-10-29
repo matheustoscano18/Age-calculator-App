@@ -11,7 +11,6 @@ function ageCalculator() {
   const dayError = document.getElementById("day-error");
   const monthError = document.getElementById("month-error");
   const yearError = document.getElementById("year-error");
-  const dmy = document.querySelectorAll(".age-input p");
   const today = new Date();
 
   const labels = document.querySelectorAll(".age-input p");
@@ -42,7 +41,6 @@ function ageCalculator() {
   }
 
   if (birthDay < 1 || birthDay > 31) {
-    dmy.style.color = "var(--primaryRed)";
     dayInput.style.border = "1px solid var(--primaryRed)";
     dayError.textContent = "Must be a valid day";
     dayError.style.display = "block";
